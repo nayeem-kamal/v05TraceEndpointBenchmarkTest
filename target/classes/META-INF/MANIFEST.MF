@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Built-By: nayeem.kamal
+Build-Jdk: 17.0.3
+Class-Path: opentracing-util-0.33.0.jar opentracing-noop-0.33.0.jar open
+ tracing-api-0.33.0.jar opentelemetry-api-1.19.0.jar opentelemetry-conte
+ xt-1.19.0.jar dd-trace-api-0.114.0.jar
+Main-Class: v05Test.Main
+Created-By: Maven Integration for Eclipse
+

@@ -1,0 +1,6 @@
+.DS_Store
+.classpath
+.project
+.settings/
+dd-java-agent.jar
+log
