@@ -26,26 +26,18 @@ public class Main {
 		System.out.println("Sent "+sentTraces+" traces in " +TimeUnit.SECONDS.convert(end,TimeUnit.NANOSECONDS) +" seconds." );
 		// TODO Auto-generated method stub
 	}
-	@Trace
+	@Trace(operationName = "Test", resourceName = "v04")
 	public static void sampleTrace(int x) {
 		int y =x+x;
 	}
 	public static long highLoadTest(int count) {
 		long traceCount = 0;
-		for(int j = 0; j <30 ; j++) {
 		for(long i = 0 ; i < count;i++) {
 			sampleTrace(1);
 			traceCount++;
 		}
-		try {
-			Thread.sleep(50);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 
-		}
+		
 		return traceCount;
 	}
 	public static long lowLoadTest(int count) {
