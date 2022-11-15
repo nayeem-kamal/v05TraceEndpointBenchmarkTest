@@ -24,7 +24,6 @@ public class Main {
 		
 		long end = (System.nanoTime()-time);
 		System.out.println("Sent "+sentTraces+" traces in " +TimeUnit.SECONDS.convert(end,TimeUnit.NANOSECONDS) +" seconds." );
-		// TODO Auto-generated method stub
 	}
 	@Trace(operationName = "Test", resourceName = "v04")
 	public static void sampleTrace(int x) {
@@ -42,8 +41,9 @@ public class Main {
 	}
 	public static long lowLoadTest(int count) {
 		long sentTraces = 0;
-		for(int i = 0; i<60;i++) {
-			for(int j =0;j<count/60;j++) {
+		
+		while(sentTraces<count) {
+			for(int j =0;j<5000;j++) {
 				sampleTrace(1);
 				sentTraces++;
 			}
