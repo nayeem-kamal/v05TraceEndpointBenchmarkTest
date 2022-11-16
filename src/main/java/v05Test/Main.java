@@ -43,7 +43,7 @@ public class Main {
 		long sentTraces = 0;
 		
 		while(sentTraces<count) {
-			for(int j =0;j<5000;j++) {
+			for(int j =0;j<2000&&j<=count;j++) {
 				sampleTrace(1);
 				sentTraces++;
 			}
