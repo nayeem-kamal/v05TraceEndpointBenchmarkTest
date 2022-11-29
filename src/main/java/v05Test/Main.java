@@ -44,7 +44,7 @@ public class Main {
 		
 		while(sentTraces<count) {
 			long time = System.nanoTime();
-			for(int j =0;j<10000&&j<=count;j++) {
+			for(int j =0;j<15000&&j<=count;j++) {
 				sampleTrace(1);
 				sentTraces++;
 			}
