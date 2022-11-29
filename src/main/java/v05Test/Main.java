@@ -43,15 +43,19 @@ public class Main {
 		long sentTraces = 0;
 		
 		while(sentTraces<count) {
-			for(int j =0;j<2000&&j<=count;j++) {
+			long time = System.nanoTime();
+			for(int j =0;j<5000&&j<=count;j++) {
 				sampleTrace(1);
 				sentTraces++;
 			}
+			long end = System.nanoTime()-time;
+			if(end<1000) {
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(1000-end);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			}
 			}
 		}
 		return sentTraces;
