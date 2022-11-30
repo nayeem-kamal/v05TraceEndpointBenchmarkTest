@@ -49,14 +49,14 @@ public class Main {
 				sentTraces++;
 			}
 			long end = System.nanoTime()-time;
-			if(end<1000) {
+			
 			try {
 				Thread.sleep(1000-end);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			}
+			
 		}
 		return sentTraces;
 		
