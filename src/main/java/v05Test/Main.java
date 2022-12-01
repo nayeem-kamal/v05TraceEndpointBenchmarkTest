@@ -16,7 +16,9 @@ public class Main {
 		if(load.equals("high")) {
 			sentTraces=highLoadTest(x);
 		}else if(load.equals("low")) {
-			sentTraces=lowLoadTest(x);
+			String tps = args[2];
+			int tpsec=Integer.parseInt(tps);
+			sentTraces=lowLoadTest(x,tpsec);
 		}else if(load.equals("variable")) {
 			
 		}
@@ -39,12 +41,12 @@ public class Main {
 		
 		return traceCount;
 	}
-	public static long lowLoadTest(int count) {
+	public static long lowLoadTest(int count,int tpsec) {
 		long sentTraces = 0;
 		
 		while(sentTraces<count) {
 			long time = System.nanoTime();
-			for(int j =0;j<2200&&j<=count;j++) {
+			for(int j =0;j<tpsec&&j<=count;j++) {
 				sampleTrace(1);
 				sentTraces++;
 			}
