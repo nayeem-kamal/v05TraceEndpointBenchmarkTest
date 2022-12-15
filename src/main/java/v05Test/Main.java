@@ -19,8 +19,10 @@ public class Main {
 			String tps = args[2];
 			int tpsec=Integer.parseInt(tps);
 			sentTraces=lowLoadTest(x,tpsec);
-		}else if(load.equals("variable")) {
-			
+		}else if(load.equals("var")) {
+			String tps = args[2];
+			int tpsec=Integer.parseInt(tps);
+			sentTraces=varLoadTest(x,tpsec);
 		}
 		
 		
@@ -59,6 +61,37 @@ public class Main {
 				e.printStackTrace();
 			}
 			
+		}
+		return sentTraces;
+		
+	}
+	public static long varLoadTest(int count,int tpsec) {
+		long sentTraces = 0;
+		
+		while(sentTraces<count) {
+			long time = System.nanoTime();
+			for(int j =0;j<tpsec&&j<=count;j++) {
+				sampleTrace(1);
+				sentTraces++;
+			}
+			long end = System.nanoTime()-time;
+			
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			for(int j =0;j<tpsec/4&&j<=count;j++) {
+				sampleTrace(1);
+				sentTraces++;
+			}
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return sentTraces;
 		
